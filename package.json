@@ -1,0 +1,20 @@
+{
+  "name": "node-course",
+  "version": "1.0.0",
+  "description": "node course",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "nodejs",
+    "assignments",
+    "alreadybored"
+  ],
+  "author": "vincapto",
+  "license": "ISC",
+  "main": "index.js"
+}
