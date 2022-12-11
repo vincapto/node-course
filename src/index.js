@@ -20,7 +20,7 @@ const myRoot = initDirectory(__dirname);
 const changeDirectory = createChangeDirectory(__dirname);
 
 function wrongCommand() {
-  return `you provided wrong command, try again`;
+  console.log(`you provided wrong command, try again`);
 }
 
 const osKeys = ['--cpus', '--homedir', '--username', '--architecture'];
@@ -82,7 +82,8 @@ async function getAction(str) {
       getInfo(args[1]);
       return;
     default:
-      return wrongCommand();
+      wrongCommand();
+      return;
   }
 }
 
