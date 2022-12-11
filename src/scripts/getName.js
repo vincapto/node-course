@@ -1,4 +1,4 @@
-function writeLine(data) {
+export function writeLine(data) {
   const paramList = data.split('--');
   const result = paramList.reduce((acc, next) => {
     if (next.length === 0) return acc;
