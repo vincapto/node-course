@@ -63,7 +63,7 @@ This project implements a simple CRUD API for managing user records using an in-
 
 4. Start the application in development mode:
    ```
-   npm run dev
+   npm run start:dev
    ```
 
 5. For production mode, build and start the application:
@@ -83,6 +83,6 @@ The project includes tests for the API endpoints. To run the tests, use:
 npm test
 ```
 
-## License
+ ## License
 
 This project is licensed under the MIT License.

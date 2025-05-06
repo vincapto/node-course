@@ -14,11 +14,13 @@ export const getUserById = async (req: Request, res: Response) => {
     const { userId } = req.params;
     if (!userModel.isValidUuid(userId)) {
         res.status(400).json({ message: 'Invalid user ID format' });
+        return;
     }
     try {
         const user = await userModel.getUserById(userId);
         if (!user) {
             res.status(404).json({ message: 'User not found' });
+            return;
         }
         res.status(200).json(user);
     } catch (error) {
@@ -30,6 +32,7 @@ export const createUser = async (req: Request, res: Response) => {
     const { username, age, hobbies } = req.body;
     if (!username || !age || !Array.isArray(hobbies)) {
         res.status(400).json({ message: 'Missing required fields' });
+        return;
     }
 
     try {
@@ -48,12 +51,14 @@ export const updateUser = async (req: Request, res: Response) => {
     const { userId } = req.params;
     if (!userModel.isValidUuid(userId)) {
         res.status(400).json({ message: 'Invalid user ID format' });
+        return;
     }
     const { username, age, hobbies } = req.body;
     try {
         const updatedUser = await userModel.updateUser(userId, { username, age, hobbies });
         if (!updatedUser) {
             res.status(404).json({ message: 'User not found' });
+            return;
         }
         res.status(200).json(updatedUser);
     } catch (error) {
@@ -65,11 +70,13 @@ export const deleteUser = async (req: Request, res: Response) => {
     const { userId } = req.params;
     if (!userModel.isValidUuid(userId)) {
         res.status(400).json({ message: 'Invalid user ID format' });
+        return;
     }
     try {
         const deleted = await userModel.deleteUser(userId);
         if (!deleted) {
             res.status(404).json({ message: 'User not found' });
+            return;
         }
         res.status(204).send();
     } catch (error) {
